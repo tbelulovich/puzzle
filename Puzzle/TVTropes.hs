@@ -5,9 +5,9 @@ import Data.Char
 import Data.Maybe
 import Data.List
 
---- takes as input the url of the source page of a TVTropes article,
---- and outputs a list of two-word tropes on the page
-tropes :: String -> IO [String]
+-- | Parse TVTropes to get a list of tropes
+tropes :: String -- ^ url of the source page of a TVTropes article
+       -> IO [String] -- ^ list of (2+)-word tropes on that page
 tropes url = do t <- stripTags url
                 let s = map wds t
                 return $ mapMaybe trope s

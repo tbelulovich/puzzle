@@ -4,13 +4,18 @@ import Data.Char
 ntolBy r x = chr ( (ord r) + x - 1) 
 ltonBy r c = ord c - ord r + 1
 
+ntol :: Int -- ^ value  1-26
+        -> Char -- ^ letter 'A' - 'Z'
 ntol = ntolBy 'A'
+
+lton :: Char -- ^ letter 'A' - 'Z'
+        -> Int -- ^ value 1-26
 lton = ltonBy 'A'
 
 -------------------- Caesar Shifting --------------------
 
---- A class of (Caesar, say) shiftable objects. Should satisfy
---- that shift is a group action of Int.
+-- | A class of (Caesar, say) shiftable objects. Should satisfy
+-- | that shift is a group action of Int.
 class Shift b where
   shift :: Int -> b -> b
   
