@@ -3,7 +3,7 @@ module Puzzle.Web where
 import Network.Curl
 import Text.HTML.TagSoup
 import Data.Maybe
-
+import Text.HTML.TagSoup.Tree
 
 getText :: String -> IO String
 getText url = do (_,s) <- curlGetString url []
@@ -16,3 +16,9 @@ getTags url = do t <- getText url
 stripTags :: String -> IO [String]
 stripTags url = do t <- getTags url
                    return $ mapMaybe maybeTagText t
+                
+getTagTree :: String -> IO [TagTree String]
+getTagTree = (fmap tagTree) . getTags
+
+type TT = TagTree String 
+type TreeParser a = TT -> [(a,TT)]
