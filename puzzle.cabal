@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                puzzle
-version:             0.1.0.0
+version:             0.1.0.1
 -- synopsis:            
 description:         Puzzle solving utilities.
 license:             MIT
@@ -20,6 +20,7 @@ library
                      Puzzle.TVTropes,
                      Puzzle.Web,
                      Puzzle.Dict,
-                     Puzzle.Morse
+                     Puzzle.Morse,
+                     Puzzle
   -- other-modules:       
   build-depends:     base ==4.5.*, curl, tagsoup (>= 0.12.8), containers >= 0.4.2.1
