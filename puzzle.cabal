@@ -15,6 +15,11 @@ build-type:          Simple
 cabal-version:       >=1.8
 
 library
-  exposed-modules:   Puzzle.Char, Puzzle.Math, Puzzle.TVTropes, Puzzle.Web
+  exposed-modules:   Puzzle.Char, 
+                     Puzzle.Math, 
+                     Puzzle.TVTropes,
+                     Puzzle.Web,
+                     Puzzle.Dict,
+                     Puzzle.Morse
   -- other-modules:       
-  build-depends:     base ==4.5.*, curl, tagsoup (>= 0.12.8)
+  build-depends:     base ==4.5.*, curl, tagsoup (>= 0.12.8), containers >= 0.4.2.1
