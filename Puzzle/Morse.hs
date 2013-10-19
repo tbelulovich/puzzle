@@ -1,14 +1,16 @@
 module Puzzle.Morse where
 
-import Puzzle.Dict
+
+import Control.Applicative hiding (many)
+import Control.Monad
+import Data.Char
 import Data.List
 import Data.Maybe
 import qualified Data.Set as S
 import Text.ParserCombinators.ReadP
-import Control.Monad
-import Control.Applicative hiding (many)
-import Data.Char
- 
+
+import Puzzle.Dict
+
 morseTable :: [(Char, String)]
 morseTable = 
   zipWith (,) 
@@ -62,7 +64,7 @@ morseDictWord d =
      return x 
 
 testBlob s = 
-  do d <- defaultDict
+  do d <- stdDict
      let p = manyTill (morseBlobDict d) eof
      return $ readP_to_S p s
 

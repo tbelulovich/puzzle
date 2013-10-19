@@ -1,5 +1,6 @@
-module Puzzle.Dict where
-
+module Puzzle.Dict 
+       where
+       
 import Control.Arrow
 import qualified Data.Set as S
 import Data.Char
@@ -8,17 +9,23 @@ import Control.Monad
 
 type Dict = S.Set String
         
-buildDict :: [String] -> Dict
-buildDict =
-  filter (all isAlpha) >>>
-  map (map toUpper) >>>
-  S.fromList 
+dMember :: String -> Dict -> Bool
+dMember = S.member
 
-dictFromFile :: FilePath -> IO Dict
-dictFromFile fp = 
+dToList :: Dict -> [String]
+dToList = S.toList
+
+dFromList :: [String] -> Dict
+dFromList =
+  filter (all isAlpha) 
+  >>> map (map toUpper) 
+  >>> S.fromList 
+
+dFromFile :: FilePath -> IO Dict
+dFromFile fp = 
   do x <- lines <$> readFile fp
-     return $ buildDict x 
+     return $ dFromList x 
 
-defaultDict :: IO Dict
-defaultDict = 
-  dictFromFile "/usr/share/dict/words"
+stdDict :: IO Dict
+stdDict = 
+  dFromFile "/usr/share/dict/words"
