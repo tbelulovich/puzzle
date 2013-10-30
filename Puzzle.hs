@@ -6,8 +6,10 @@ module Puzzle
   ,module Puzzle.TVTropes
   ,module Puzzle.Web
   ,module Puzzle.Scrabble
+  ,module Puzzle.List
   ) where
 
+import Puzzle.List
 import Puzzle.Char
 import Puzzle.Dict
 import Puzzle.Math
