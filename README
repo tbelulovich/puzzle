@@ -1,0 +1,41 @@
+Puzzle solving tools in Haskell.
+
+The top level module Puzzle imports all submodules.
+
+The module structure and all functions are subject to change. Imports are occasionally a bit messy. For now, priority is with getting enough useful tools built as possible. 
+
+Puzzle.Char:
+
+- caesar shifting
+- letter to number; number to letter
+
+
+Puzzle.Scrabble
+
+- scrabble and words-with-friends letter scores
+- letter-by-letter scores and word scores
+- built atop Reader monad for extensibilty
+
+Puzzle.Math
+
+- polynomials, factorial, number bases, primality reexports
+
+Puzzle.TVTropes
+
+- tvtropes accessors
+
+Puzzle.Web
+
+- (very very) basic tagsoup shortcuts 
+
+Puzzle.Dict
+
+- Word dictionaries, /usr/share/dict/words interface
+
+Puzzle.Morse
+
+- Morse code parsers and writers
+
+Puzzle.List
+
+- List utility functions, extension to Data.List
