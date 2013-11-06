@@ -7,8 +7,10 @@ module Puzzle
   ,module Puzzle.Web
   ,module Puzzle.Scrabble
   ,module Puzzle.List
+  ,module Puzzle.Diags
   ) where
 
+import Puzzle.Diags
 import Puzzle.List
 import Puzzle.Char
 import Puzzle.Dict
