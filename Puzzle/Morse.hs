@@ -1,7 +1,6 @@
 module Puzzle.Morse
        (morseLetter
        ,runMorse
-       ,morseLetter
        ,morseBlobDict
        ,morseWord
        ,morseDictWord
