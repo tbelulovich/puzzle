@@ -1,6 +1,5 @@
 module Puzzle.Scrabble 
-       (module Puzzle.Scrabble,
-        module Control.Monad.Reader
+       (module Puzzle.Scrabble
        ) where
              
 import Control.Monad.Reader
@@ -11,6 +10,13 @@ import Control.Applicative
 type Scrabble = Reader Scorer
 type Scorer = (Char -> Int)
 
+runScrabble :: Scrabble a -> Scorer -> a
+runScrabble = runReader
+
+getScorer :: Scrabble Scorer
+getScorer = ask
+
+scorerFromTable :: [Int] -> Char -> Int
 scorerFromTable t c = fromJust $ lookup (toUpper c) st
   where
     st = zip ['A'..'Z'] t
