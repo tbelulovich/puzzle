@@ -9,23 +9,23 @@ import Control.Monad
 
 type Dict = S.Set String
         
-dMember :: String -> Dict -> Bool
-dMember = S.member
+member :: String -> Dict -> Bool
+member = S.member
 
-dToList :: Dict -> [String]
-dToList = S.toList
+toList :: Dict -> [String]
+toList = S.toList
 
-dFromList :: [String] -> Dict
-dFromList =
+fromList :: [String] -> Dict
+fromList =
   filter (all isAlpha) 
   >>> map (map toUpper) 
   >>> S.fromList 
 
-dFromFile :: FilePath -> IO Dict
-dFromFile fp = 
+fromFile :: FilePath -> IO Dict
+fromFile fp = 
   do x <- lines <$> readFile fp
-     return $ dFromList x 
+     return $ fromList x 
 
 stdDict :: IO Dict
 stdDict = 
-  dFromFile "/usr/share/dict/words"
+  fromFile "/usr/share/dict/words"
