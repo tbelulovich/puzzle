@@ -1,7 +1,10 @@
 module Puzzle.Math 
-       ( module Math.NumberTheory.Primes 
-       , module Puzzle.Math
-       ) where
+       (module Puzzle.Math
+       ,primes
+       ,factorise
+       ,totient
+       )
+       where
 
 import Math.NumberTheory.Primes
 import Data.List                                    
@@ -22,8 +25,8 @@ instance (Num a) => Num (Poly a) where
   x + (Poly []) = x
   (Poly (x:xs)) + (Poly (y:ys)) = Poly ((x+y):(coeffs $ (Poly xs) + (Poly ys)))
   negate = fmap negate
-  (Poly []) * x = (Poly [])
-  x * (Poly []) = (Poly [])
+  (Poly []) * _ = (Poly [])
+  _ * (Poly []) = (Poly [])
   (Poly (x:xs)) * g = a + b where
     a = fmap (* x) g
     b = Poly (0:(coeffs $ (Poly xs) * g))
