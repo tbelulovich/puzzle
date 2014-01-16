@@ -1,7 +1,14 @@
-module Puzzle.Char (ntol, lton, shift) where
+module Puzzle.Char (ntol
+                   , lton
+                   , shift)
+       where
+
 import Data.Char
 
-ntolBy r x = chr ( (ord r) + x - 1) 
+ntolBy :: Char -> Int -> Char
+ntolBy r x = chr ( (ord r) + x - 1)
+
+ltonBy :: Char -> Char -> Int
 ltonBy r c = ord c - ord r + 1
 
 ntol :: Int -- ^ value  1-26
@@ -19,6 +26,7 @@ lton = ltonBy 'A'
 class Shift b where
   shift :: Int -> b -> b
   
+shiftBy :: Char -> Int -> Char -> Char
 shiftBy r n c = ntolBy r $ 1 + mod ((ltonBy r c) + n-1) 26
   
 instance Shift Char where
