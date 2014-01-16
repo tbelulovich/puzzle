@@ -2,12 +2,8 @@
 module Puzzle.Diags where
 
 import Diagrams.Prelude
-import Diagrams.Backend.SVG.CmdLine
 import Diagrams.Backend.SVG
-import Control.Applicative
 import Control.Category ((>>>))
-
-
 
 tile color = square 1 # fc color
                       # lw 0.05
