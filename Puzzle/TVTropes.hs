@@ -8,9 +8,11 @@ import Data.List
 -- | Parse TVTropes to get a list of tropes
 tropes :: String -- ^ url of the source page of a TVTropes article
        -> IO [String] -- ^ list of (2+)-word tropes on that page
-tropes url = do t <- stripTags url
-                let s = map wds t
-                return $ mapMaybe trope s
+tropes url = do
+  let doc = fromUrl url
+  t <- runX $ doc //> getText
+  let s = map wds t
+  return $ mapMaybe trope s
                 
 split :: (a -> Bool) -> [a] -> [[a]]
 split p [] = []

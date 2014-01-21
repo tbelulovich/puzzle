@@ -5,7 +5,6 @@ import Control.Arrow
 import qualified Data.Set as S
 import Data.Char
 import Control.Applicative
-import Control.Monad
 
 type Dict = S.Set String
         

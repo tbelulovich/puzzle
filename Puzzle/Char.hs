@@ -36,3 +36,13 @@ instance Shift Char where
 
 instance Shift a => Shift [a] where
   shift n = map (shift n)
+
+vowelsL  = "AEIOU"
+vowelsL' = "AEIOUY"
+
+vowel = (`elem` vowelsL)
+vowel' = (`elem` vowelsL')
+
+consonant x = isAlpha x && isUpper x && not (vowel x)
+consonant' x = isAlpha x && isUpper x && not (vowel' x)
+
