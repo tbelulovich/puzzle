@@ -1,6 +1,12 @@
-module Puzzle.Char (ntol
-                   , lton
-                   , shift)
+module Puzzle.Char
+       (ntol
+       , lton
+       , shift
+       , vowel
+       , vowel'
+       , consonant
+       , consonant'
+       )
        where
 
 import Data.Char
