@@ -1,6 +1,8 @@
 module Puzzle.Morse
        (morseLetter
        ,runMorse
+       ,toMorse
+       ,toMorseBlob
        ,morseBlobDict
        ,morseWord
        ,morseDictWord
@@ -23,6 +25,9 @@ morseTable =
   ,"....","..",".---","-.-",".-..","--","-.","---"
   ,".--.","--.-",".-.","...","-","..-","...-",".--"
   ,"-..-","-.--","--.."]
+
+toMorseBlob :: String -> String
+toMorseBlob = concat . mapMaybe (flip lookup morseTable)
 
 toMorse :: String -> String
 toMorse = intercalate " "
@@ -55,7 +60,6 @@ mem :: String -> Dict -> Bool
 mem x d =
   (x `elem` ["A","I","AM","ON","IN","OF","SO","IT"] || (length x >= 3))
   && S.member x d
-             
 
 morseBlobDict :: Dict -> Morse String
 morseBlobDict d =
