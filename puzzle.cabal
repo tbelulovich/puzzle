@@ -16,7 +16,7 @@ cabal-version:       >=1.8
 
 library
   exposed-modules:   Puzzle.Char, 
-                     Puzzle.Diags,
+--                     Puzzle.Diags,
                      Puzzle.Scrabble,
                      Puzzle.Math, 
                      Puzzle.TVTropes,
