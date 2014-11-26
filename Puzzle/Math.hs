@@ -1,12 +1,8 @@
 module Puzzle.Math 
        (module Puzzle.Math
-       ,primes
-       ,factorise
-       ,totient
        )
        where
 
-import Math.NumberTheory.Primes
 import Data.List                                    
 
 -- | Factorial
